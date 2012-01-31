@@ -1,0 +1,17 @@
+.header foo
+.info test
+.section ok
+test
+test
+.image pumpkin.gif
+foooobar
+test
+test
+.code scheme
+foo
+bar
+testing
+testing
+123
+.//foobar
+.header bar

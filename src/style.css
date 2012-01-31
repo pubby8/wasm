@@ -1,0 +1,109 @@
+html {
+  background:#FFFFFF;
+}
+body {
+  background: #f2f1f0;
+  font-family: serif;
+  margin-left:10%;
+  margin-right:10%;
+}
+code {
+  white-space: nowrap;
+  background: #DDDDDD;
+}
+
+/* Headers / sections */
+div.header {
+  font-size: 24px;
+  font-weight: bold;
+}
+div.section {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Info block */
+div.info {
+  background-color:#FFFF99;
+  margin:8px;
+}
+span.info-header {
+  font-weight: bold;
+}
+
+/* Edit block*/
+div.edit {
+  background-color:#FF7D7D;
+  font-family: cursive;
+  margin:8px;
+}
+span.edit {
+  font-weight: bold;
+}
+
+/* Text block */
+div.text {
+  margin:8px;
+}
+
+/* Image block */
+div.image {
+  font-style: italic;
+  font-weight: bold;
+}
+
+/* Code block */
+div.code {
+  background-color:#FFFFFF;
+  font-family: monospace;
+  margin:4px;
+  white-space: normal;
+}
+div.codeinner {
+  border:1px solid black;
+  padding:4px;
+}
+
+
+span.numberlist {
+
+  font-family: monospace;
+  font-size: 16px;
+  font-weight: bold;
+}
+div.source {
+  font-family: monospace;
+  padding:4px;
+}
+div.sourceinner {
+  border-left:1px dashed black;
+  font-family: monospace;
+  margin:4px;
+  padding:4px;
+}
+div.code {
+  background-color:#FFFFFF;
+  font-family: monospace;
+  margin:4px;
+  white-space: normal;
+}
+div.codeinner {
+  border:1px solid black;
+  padding:4px;
+}
+div.code-c {
+  background-color:#FFCC66;
+}
+div.code-cpp {
+  background-color:#FFFF66;
+}
+div.code-haskell {
+  background-color:#C9EAF3;
+}
+div.code-scheme {
+  background-color:#99FF66;
+}
+div.code-term {
+  color:#FFFFFF;
+  background-color:#000022;
+}
