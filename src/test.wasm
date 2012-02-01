@@ -6,12 +6,19 @@ test
 .image pumpkin.gif
 foooobar
 test
+.
+\ #test#`test`~test~_test_
 test
+.. this is a comment!
+.
+\ sometimes I like stuff
+\ test test
+\ fubar
+
 .code scheme
 foo
 bar
 testing
 testing
 123
-.//foobar
 .header bar

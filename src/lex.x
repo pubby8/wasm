@@ -1,11 +1,10 @@
-/*** Definition section ***/
-
+/* Don't remove this comment */
 %{
-/* C code to be copied verbatim */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+#include "mark.h"
 #include "mode.h"
 #include "stringutil.h"
 
@@ -19,24 +18,26 @@ int expect_nl = 0;
 #define NDIV(x)   do{ mode_change(mode_div); printf("<div class=\""x"\">\n<span class=\""x"\">%s</span></br>",yytext+sizeof("."x)); }while(0)
 %}
 
-/* This tells flex to read only one input fout */
 %option noyywrap
 
 %%
-^\."//".*         { COMMAND() }
+^\.\..*           { COMMAND() }
 ^\.section\ .*    { COMMAND(NBLOCK("section");) }
 ^\.header\ .*     { COMMAND(NBLOCK("header");) }
-^\.*              { COMMAND(DIV("text");) }
+^\.text/\n        { COMMAND(DIV("text");) }
 ^\.info\ .*       { COMMAND(NDIV("info");) }
 ^\.edit\ .*       { COMMAND(NDIV("edit");) }
 
+^\\\ .*           { COMMAND(printf("%s",CTEXT(""));) }
+^\./\n            { COMMAND(DIV("</br>");) }
+
 ^\.image\ .*      { COMMAND(DIV("image"); printf("<img src=\"%s\"></br>",CTEXT("code"));) }
 ^\.code\ .*       { COMMAND(mode_change(mode_code); printf("<div class=\"code\"><div class=\"code-%s\"><div class=\"codeinner\"><pre>",CTEXT("code"));) }
-^\.code           { COMMAND(mode_change(mode_code); printf("<div class=\"code\"><div><div class=\"codeinner\"><pre>");) }
+^\.code/\n        { COMMAND(mode_change(mode_code); printf("<div class=\"code\"><div><div class=\"codeinner\"><pre>");) }
 
 
 \n                { if(!expect_nl) printf("</br>"); }
-.*                { printf("%s",yytext);}
+.*                { mark_string(yytext); }
 
 %%
 /*
